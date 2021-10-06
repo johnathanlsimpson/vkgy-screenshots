@@ -43,7 +43,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
   };
 
   if(format === "jpeg") {
-    options.quality = 80;
+    options.quality = 100;
   }
 
   let output = await page.screenshot(options);
@@ -58,7 +58,7 @@ async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
   let pathSplit = event.path.split("/").filter(entry => !!entry);
   let [url, size, aspectratio, zoom] = pathSplit;
-  let format = "webp"; // hardcoded for now
+  let format = "jpeg"; // hardcoded for now
   let viewport = [];
 
   // Manage your own frequency by using a _ prefix and then a hash buster string after your URL
