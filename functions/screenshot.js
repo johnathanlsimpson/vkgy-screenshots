@@ -42,9 +42,9 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
     encoding: "base64"
   };
 
-  //if(format === "jpeg") {
+  if(format === "jpeg") {
     options.quality = 100;
-  //}
+  }
 
   let output = await page.screenshot(options);
 
